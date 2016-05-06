@@ -13,10 +13,7 @@
 // 5. Subscribe your page to the Webhooks using verify_token and `https://<your_ngrok_io>/fb` as callback URL.
 // 6. Talk to your bot on Messenger!
 
-var WIT_TOKEN='7PMAUKHCBWXQEGW4JKBP55IWJDNA2KJ2'
-var FB_PAGE_ID='TravelChernobyl'
-var FB_PAGE_TOKEN='EAAHWk1LXqmoBAKT4jyaxzVU0uQAZCrWymIsV35tIuxOZCh0AQDZCBazCk8e5kwE1i5R97ZBSFlZApST56MbyXR6vIsqXV1Tze1wKGznM3QjIk7FcJZBxlcE9IsjYrdJEnGP9qHb28TGnZCZBacbGMcSImPbReBlQw2JUQ5OwvPNeZBwZDZD'
-var FB_VERIFY_TOKEN='my_voice_is_my_password_verify_me'
+
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -44,7 +41,10 @@ if (!FB_PAGE_TOKEN) {
 const FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN;
 
 // Messenger API specific code
-
+const WIT_TOKEN='7PMAUKHCBWXQEGW4JKBP55IWJDNA2KJ2'
+const FB_PAGE_ID='TravelChernobyl'
+const FB_PAGE_TOKEN='EAAHWk1LXqmoBAKT4jyaxzVU0uQAZCrWymIsV35tIuxOZCh0AQDZCBazCk8e5kwE1i5R97ZBSFlZApST56MbyXR6vIsqXV1Tze1wKGznM3QjIk7FcJZBxlcE9IsjYrdJEnGP9qHb28TGnZCZBacbGMcSImPbReBlQw2JUQ5OwvPNeZBwZDZD'
+const FB_VERIFY_TOKEN='my_voice_is_my_password_verify_me'
 // See the Send API reference
 // https://developers.facebook.com/docs/messenger-platform/send-api-reference
 const fbReq = request.defaults({
