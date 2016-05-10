@@ -38,6 +38,10 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
+			if (text === 'test') {
+				sendGenericMessage(sender)
+				continue
+			}
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
@@ -81,7 +85,7 @@ function sendGenericMessage(sender) {
 				"elements": [{
 					"title": "First card",
 					"subtitle": "Element #1 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+					
 					"buttons": [{
 						"type": "web_url",
 						"url": "https://www.messenger.com",
@@ -91,15 +95,7 @@ function sendGenericMessage(sender) {
 						"title": "Postback",
 						"payload": "Payload for first element in a generic bubble",
 					}],
-				}, {
-					"title": "Second card",
-					"subtitle": "Element #2 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-					"buttons": [{
-						"type": "postback",
-						"title": "Postback",
-						"payload": "Payload for second element in a generic bubble",
-					}],
+				},],
 				}]
 			}
 		}
