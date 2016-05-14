@@ -1,4 +1,3 @@
-
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
@@ -48,7 +47,7 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-var token = "EAASEZAkhjsEwBANMssSocV8VCEpiamR3WZCcZAjSI3VVYoJ4FkRmAtLnTJqqGLrWIFefMenBKY7x9dghrpSW6xaRXTBaWAlt7KlvSFZBm4mHqno1yW1nv28ZCrqtm7JjIISA0x7U5MXSkxlwwXLV3RPevkZBvAf6VRZC16ZCcFGfVwZDZD"
+var token = "EAASEZAkhjsEwBAOWZBKZCZAp5O757a9lYxsNzndsDH0ZCvk18zeuft8xmcs7IkQNjwvmn1F6bjfZBAWtKjc2ktgNjC0JMnrtaiTAwMhWZAdubxTeEuiDgwZCqDPsB69ln4tDQjidUauxJnlGHlV5jGl84IwPVMLAenQ3kpdF0wNtvgZDZD"
 
 function sendTextMessage(sender, text) {
 	messageData = {
