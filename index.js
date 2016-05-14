@@ -1,9 +1,8 @@
+
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
 var app = express()
-
-
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -38,10 +37,6 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
-			if (text === 'test') {
-				sendGenericMessage(sender)
-				continue
-			}
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
@@ -53,7 +48,7 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-var token = "EAASEZAkhjsEwBAB0W8k7NKCSHaWZBpQicvAnZBVEUZCDyOcocj9sjMnZBKaHsS49536ZBlJZC8t1tEC88tdMekdtyeTQ6xiW3Iv79NIMRIv9DvnhtZCxXBv5Hi6Ht7hloENXvgSlqNZA5Q7OIYNEZABCR53AYDo44QCupJBon6pqFrygZDZD"
+var token = "EAASEZAkhjsEwBANMssSocV8VCEpiamR3WZCcZAjSI3VVYoJ4FkRmAtLnTJqqGLrWIFefMenBKY7x9dghrpSW6xaRXTBaWAlt7KlvSFZBm4mHqno1yW1nv28ZCrqtm7JjIISA0x7U5MXSkxlwwXLV3RPevkZBvAf6VRZC16ZCcFGfVwZDZD"
 
 function sendTextMessage(sender, text) {
 	messageData = {
@@ -85,7 +80,7 @@ function sendGenericMessage(sender) {
 				"elements": [{
 					"title": "First card",
 					"subtitle": "Element #1 of an hscroll",
-					
+					"image_url": "http://messengerdemo.parseapp.com/img/rift.png",
 					"buttons": [{
 						"type": "web_url",
 						"url": "https://www.messenger.com",
@@ -95,7 +90,15 @@ function sendGenericMessage(sender) {
 						"title": "Postback",
 						"payload": "Payload for first element in a generic bubble",
 					}],
-				},],
+				}, {
+					"title": "Second card",
+					"subtitle": "Element #2 of an hscroll",
+					"image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+					"buttons": [{
+						"type": "postback",
+						"title": "Postback",
+						"payload": "Payload for second element in a generic bubble",
+					}],
 				}]
 			}
 		}
@@ -119,54 +122,4 @@ function sendGenericMessage(sender) {
 
 // spin spin sugar
 app.listen(app.get('port'), function() {
-	console.log('running on port', app.get('port'))
-})
-// spin spin sugar
-function sendGenericenuMessage(sender) {
-	messageData = {
-		"attachment": {
-			"type": "template",
-			"payload": {
-				"template_type": "generic",
-				"elements": [{
-					"title": "First card",
-					"subtitle": "Element #1 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-					"buttons": [{
-						"type": "web_url",
-						"url": "https://www.messenger.com",
-						"title": "web url"
-					}, {
-						"type": "postback",
-						"title": "Postback",
-						"payload": "Payload for first element in a generic bubble",
-					}],
-				}, {
-					"title": "Second card",
-					"subtitle": "Element #2 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-					"buttons": [{
-						"type": "postback",
-						"title": "Postback",
-						"payload": "5612yload for second element in a generic bubble",
-					}],
-				}]
-			}
-		}
-	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
-}
+	console.log('running on port', app.get
