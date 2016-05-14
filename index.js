@@ -148,7 +148,7 @@ function sendGenericenuMessage(sender) {
 					"buttons": [{
 						"type": "postback",
 						"title": "Postback",
-						"payload": "Payload for second element in a generic bubble",
+						"payload": "5612yload for second element in a generic bubble",
 					}],
 				}]
 			}
