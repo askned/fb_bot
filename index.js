@@ -122,4 +122,5 @@ function sendGenericMessage(sender) {
 
 // spin spin sugar
 app.listen(app.get('port'), function() {
-	console.log('running on port', app.get
+	console.log('running on port', app.get('port'))
+})
